@@ -1,0 +1,40 @@
+{
+  "name": "flappy-brain",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "dev": "parcel src/index.html",
+    "build": "parcel src/index.html"
+  },
+  "browserslist": [
+    "last 1 Chrome versions"
+  ],
+  "postcss": {
+    "modules": true,
+    "plugins": [
+      "postcss-nested"
+    ]
+  },
+  "babel": {
+    "plugins": [
+      "astroturf/plugin"
+    ]
+  },
+  "dependencies": {
+    "astroturf": "^0.10.4",
+    "classnames": "^2.2.6",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.10.3",
+    "@types/classnames": "^2.2.10",
+    "@types/react": "^16.9.38",
+    "@types/react-dom": "^16.9.8",
+    "parcel-bundler": "^1.12.4",
+    "postcss-modules": "^2.0.0",
+    "prettier": "^2.0.5",
+    "typescript": "^3.9.5"
+  }
+}
