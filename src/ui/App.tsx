@@ -1,13 +1,11 @@
-import React, { useRef, useEffect } from 'react'
+import React from 'react'
 import { css } from 'astroturf'
-import { initCanvas } from '../graphics/canvas'
+import { useCanvasDrawer } from '../graphics/CanvasDrawer'
 
 function App() {
-  const canvasRef = useRef<HTMLCanvasElement | null>(null)
+  const { canvasRef, drawer } = useCanvasDrawer()
 
-  useEffect(() => {
-    if (canvasRef.current) initCanvas(canvasRef.current)
-  }, [])
+  console.log(drawer)
 
   return (
     <>
