@@ -11,6 +11,7 @@ export function useCanvasDrawer() {
   const canvasRef = useCallback(
     (el: HTMLCanvasElement | null) => {
       if (el && (!that.drawer || that.drawer.canvas !== el)) {
+        if (that.drawer) that.drawer.destroy()
         that.drawer = new CanvasDrawer(el)
         forceUpdate()
       }
@@ -33,10 +34,14 @@ export class CanvasDrawer {
     this.canvas = canvas
     this.ctx = canvas.getContext('2d') as CanvasRenderingContext2D
     this.measureWindow()
-    window.addEventListener('resize', () => this.measureWindow())
+    window.addEventListener('resize', this.measureWindow)
   }
 
-  measureWindow() {
+  destroy() {
+    window.removeEventListener('resize', this.measureWindow)
+  }
+
+  measureWindow = () => {
     this.width = window.innerWidth
     this.height = window.innerHeight
     this.canvas.width = this.width * DPI
